@@ -2,7 +2,7 @@ from django.urls import path
 from AppCoder.views import *
 
 urlpatterns = [
-    path("", inicio),
-    path("vista", vista),
+    path("", inicio, name = "Inicio"),
+    path("vista", vista, name = "Vista"),
     
 ]
