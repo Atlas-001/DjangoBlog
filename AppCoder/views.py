@@ -22,6 +22,9 @@ def formu(request):
         formulario1 = Formulario()
     return render(request, "AppCoder/formulario.html", {"form1":formulario1})
 
+def buscarUsuario(request):
+    return render(request, "AppCoder/buscandoUsuario.html")
+
 def busqueda(request):
     if request.GET["nombre"]:
         buscar = request.GET["nombre"]
