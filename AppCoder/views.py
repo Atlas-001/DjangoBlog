@@ -2,8 +2,8 @@ from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .models import Usuario
-from .forms import Formulario
+from .models import *
+from .forms import *
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
@@ -17,10 +17,22 @@ def formu(request):
             info = formulario1.cleaned_data
             usuarioF = Usuario(nombre = info["nombre"], apellido = info["apellido"], correo = info["mail"])
             usuarioF.save()
-            return render(request, "AppCoder/formulario.html")
+            return render(request, "AppCoder/inicio.html")
     else:
         formulario1 = Formulario()
     return render(request, "AppCoder/formulario.html", {"form1":formulario1})
+
+def formuPeli(request):
+    if request.method == "POST":
+        formulario2 = PeliForm(request.POST)
+        if formulario2.is_valid():
+            info = formulario2.cleaned_data
+            peliF = Peli(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
+            peliF.save()
+            return render(request, "AppCoder/inicio.html")
+    else:
+        formulario2 = PeliForm()
+    return render(request, "AppCoder/peliform.html", {"form2":formulario2})
 
 def buscarUsuario(request):
     return render(request, "AppCoder/buscandoUsuario.html")
