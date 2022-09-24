@@ -5,3 +5,15 @@
 Bienvenido Al Sitio
 
 {% endblock %}
+
+{% block descripcion %}
+<p>Estas buscando a {{usuario}}</p>
+
+    {% for usuario in usuario %}
+        <ul>
+            <li>Nombre: {{usuario.nombre}}</li>
+            <li>Apellido: {{usuario.apellido}}</li>
+            <li>Email: {{usuario.correo}}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
