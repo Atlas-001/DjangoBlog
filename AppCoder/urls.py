@@ -6,6 +6,7 @@ urlpatterns = [
     path("formSerie", formuSerie, name = "FormSerie"),
     path("formPeli", formuPeli, name = "FormPeli"),
     path("formUsuario", formu, name = "FormUsuario"),
-    path("buscador/", buscarUsuario, name = "Buscador"),
+    path("buscar", buscarUsuario, name = "Buscador"),
+    path("resultados/", busqueda, name = "Resultado"),
     
 ]

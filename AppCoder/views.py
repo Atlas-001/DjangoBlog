@@ -45,13 +45,13 @@ def formuSerie(request):
     return render(request, "AppCoder/serieform.html", {"form3":formulario3})
 
 def buscarUsuario(request):
-    return render(request, "AppCoder/buscandoUsuario.html")
+    return render(request, "AppCoder/buscando.html")
 
 def busqueda(request):
-    if request.GET["nombre"]:
-        buscar = request.GET["nombre"]
-        usuario = Usuario.objects.filter(nombre_icontains=buscar)
-        return render(request, "AppCoder/resultados.html", {"usuario":usuario, "buscar":buscar})
+    if request.GET["titulo"]:
+        buscar = request.GET["titulo"]
+        pelis = Peli.objects.filter(titulo__icontains=buscar)
+        return render(request, "AppCoder/resultados.html", {"pelis":pelis, "buscar":buscar})
     else:
         mensaje = "No enviaste datos."
     return HttpResponse(mensaje)

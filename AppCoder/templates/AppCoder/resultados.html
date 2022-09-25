@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "AppCoder/plantilla.html" %}
 
-    <p>Estas buscando a {{usuario}}</p>
+{% block titulo %}
+Resultado de Busqueda
+{% endblock %}
 
-    {% for usuario in usuario %}
+{% block descripcion %}
+    {% for peli in pelis %}
         <ul>
-            <li>Nombre: {{usuario.nombre}}</li>
-            <li>Apellido: {{usuario.apellido}}</li>
-            <li>Email: {{usuario.correo}}</li>
+            <li>Titulo: {{peli.titulo}}</li>
+            <li>Genero: {{peli.genero}}</li>
+            <li>Año: {{peli.anio}}</li>
         </ul>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

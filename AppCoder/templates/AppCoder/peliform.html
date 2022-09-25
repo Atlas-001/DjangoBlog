@@ -1,7 +1,11 @@
 {% extends "AppCoder/plantilla.html" %}
 
+{% block titulo %}
+Peliculas
+{% endblock %}
+
 {% block formular %}
-    <form action="" method="POST"> {% csrf_token %}
+    <form action="/AppCoder/formPeli" method="POST"> {% csrf_token %}
         <table align="center">
             {{form2.as_table}}
         </table>
