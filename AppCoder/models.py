@@ -9,3 +9,8 @@ class Peli(models.Model):
     titulo = models.CharField(max_length=60)
     genero = models.CharField(max_length=60)
     anio = models.IntegerField()
+
+class Serie(models.Model):
+    titulo = models.CharField(max_length=60)
+    genero = models.CharField(max_length=60)
+    anio = models.IntegerField()

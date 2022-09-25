@@ -9,3 +9,8 @@ class PeliForm(forms.Form):
     titulo = forms.CharField()
     genero = forms.CharField()
     anio = forms.IntegerField()
+
+class SerieForm(forms.Form):
+    titulo = forms.CharField()
+    genero = forms.CharField()
+    anio = forms.IntegerField()

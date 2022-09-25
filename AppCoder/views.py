@@ -4,11 +4,9 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import *
 from .forms import *
+
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
-
-def vista(request):
-    return render(request, "AppCoder/vista.html")
 
 def formu(request):
     if request.method == "POST":
@@ -33,6 +31,18 @@ def formuPeli(request):
     else:
         formulario2 = PeliForm()
     return render(request, "AppCoder/peliform.html", {"form2":formulario2})
+
+def formuSerie(request):
+    if request.method == "POST":
+        formulario3 = SerieForm(request.POST)
+        if formulario3.is_valid():
+            info = formulario3.cleaned_data
+            serieF = Serie(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
+            serieF.save()
+            return render(request, "AppCoder/inicio.html")
+    else:
+        formulario3 = SerieForm()
+    return render(request, "AppCoder/serieform.html", {"form3":formulario3})
 
 def buscarUsuario(request):
     return render(request, "AppCoder/buscandoUsuario.html")
