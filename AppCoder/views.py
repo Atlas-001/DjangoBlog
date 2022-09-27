@@ -56,6 +56,8 @@ def busqueda(request):
         mensaje = "No enviaste datos."
     return HttpResponse(mensaje)
 
+
+
 def cartel(request):
     listadoPeli = Peli.objects.all()
-    return render(request, "cartelera.html",{"titulo":listadoPeli})
+    return render(request, "AppCoder/cartelera.html",{"titulo":listadoPeli})

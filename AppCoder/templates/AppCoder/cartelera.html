@@ -30,43 +30,48 @@
             </div>
         </nav>
         <!-- Masthead-->
+        <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
-                        <div class="text-center">
+                        <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1>
-                                TEXTO!!
+                            <h1 style="padding: 30px; align-items: center; margin-top: -170px; text-shadow: 7px 5px 10px #000;">
+                                Peliculas Disponibles
                             </h1>
-                            <section style="width: 400px; background: #24303c; font-size: 20px; padding: 30px; margin: auto; margin-top: 100px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000;">
-                        </section>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Título</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for t in titulo %}
-                                <tr>
-                                    <td>{{t.titulo}}</td>
-                                    <td>{{t.anio}}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                <section style="width: 800px; background: #24303c; font-size: 20px; padding: 10px; margin: auto; margin-bottom: -100px; margin-top: -50px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000; justify-content: center;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr style="color: white">
+                                            <th>Título</th>
+                                            <th>Género</th>
+                                            <th>Año</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for t in titulo %}
+                                        <tr style="color: white">
+                                            <td>{{t.titulo}}</td>
+                                            <td>{{t.genero}}</td>
+                                            <td>{{t.anio}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </div>
+        
+        </header>
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
