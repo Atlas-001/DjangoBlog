@@ -30,25 +30,43 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
-                        <div class="text-center text-white">
+                        <div class="text-center">
                             <!-- Page heading-->
-                            <h1 class="mb-5">
-                                {% block titulo %}
-                                {% endblock %}
+                            <h1>
+                                TEXTO!!
                             </h1>
                             <section style="width: 400px; background: #24303c; font-size: 20px; padding: 30px; margin: auto; margin-top: 100px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000;">
-                            {% block formular %}
-                            {% endblock %}
                         </section>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for t in titulo %}
+                                <tr>
+                                    <td>{{t.titulo}}</td>
+                                    <td>{{t.anio}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -65,30 +83,8 @@
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

@@ -8,5 +8,6 @@ urlpatterns = [
     path("formUsuario", formu, name = "FormUsuario"),
     path("buscar", buscarUsuario, name = "Buscador"),
     path("resultados/", busqueda, name = "Resultado"),
+    path("cartelera", cartel, name = "cartelera")
     
 ]
