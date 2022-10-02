@@ -61,7 +61,7 @@ def cartel(request):
     return render(request, "AppCoder/cartelera.html",{"titulo":listadoPeli})
 
 def leerPub(request):
-    publi = Peli.objects.all()
+    publi = Publi.objects.all()
     contexto = {"publi":publi}
     return render(request, "AppCoder/leerPubli.html", contexto)
 
@@ -72,7 +72,7 @@ def crearPub(request):
             info = crearPublicacion.cleaned_data
             publi = Publi(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
             publi.save()
-            return render(request, "AppCoder/inicio.html")
+            return render(request, "AppCoder/leerPubli.html")
     else:
         crearPublicacion = PubliForm()
     return render(request, "AppCoder/publiform.html", {"publicar":crearPublicacion})
@@ -94,7 +94,7 @@ def editarPub(request, pubTitu):
             pubt.genero = info["genero"]
             pubt.anio = info["anio"]
             pubt.save()
-            return render(request, "AppCoder/inicio.html")
+            return render(request, "AppCoder/leerPubli.html")
     else:
         crearPublicacion = PubliForm(initial={"titulo": pubt.titulo, "genero": pubt.genero, "anio": pubt.anio})
     return render(request, "AppCoder/editarPubli.html", {"publicar":crearPublicacion, "nombre":pubTitu})

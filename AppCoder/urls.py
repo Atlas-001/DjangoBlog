@@ -12,7 +12,7 @@ urlpatterns = [
 
     #CRUD
     path("leerpubli/", leerPub, name="publicaleer"),
-    path("crearpubli/", leerPub, name="publicacrear"),
+    path("crearpubli/", crearPub, name="publicacrear"),
     path("eliminarpubli/<pubTitu>", eliminarPub, name="publicaeliminar"),
     path("editarpubli/<pubTitu>", editarPub, name="publicaeditar")
     
