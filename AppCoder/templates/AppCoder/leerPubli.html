@@ -19,7 +19,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'FormSerie' %}">Series</a>
@@ -38,18 +38,40 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5" style="padding: 30px; align-items: center; margin-top: -140px; text-shadow: 7px 5px 10px #000;">
-                                {% block titulo %}
-                                {% endblock %}
+                            <h1 style="padding: 30px; align-items: center; margin-top: -170px; text-shadow: 7px 5px 10px #000;">
+                                Peliculas Disponibles
                             </h1>
-                            <section style="width: 400px; background: #24303c; font-size: 20px; padding: 30px; margin: auto; margin-bottom: -40px; margin-top: -40px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000;">
-                                {% block formular %}
-                                {% endblock %}
-                            </section>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
+                {% for t in publi %}
+                <section style="width: 800px; background: #24303c; font-size: 20px; padding: 10px; margin: auto; margin-bottom: 20px; margin-top: 30px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000; justify-content: center;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="">
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr style="color: white">
+                                            <th>Título</th>
+                                            <th>Género</th>
+                                            <th>Año</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>                                       
+                                        <tr style="color: white">
+                                            <td>{{t.titulo}}</td>
+                                            <td>{{t.genero}}</td>
+                                            <td>{{t.anio}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </div> 
         </header>
         <!-- Footer-->
         <footer class="footer bg-dark">

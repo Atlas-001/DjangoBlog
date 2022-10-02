@@ -15,10 +15,11 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'FormSerie' %}">Series</a>
@@ -26,11 +27,12 @@
                 <a class="navbar-brand" href="{% url 'FormUsuario' %}">Usuario</a>
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'cartelera' %}">Cartelera</a>
+                <a class="navbar-brand" href="{% url 'publica' %}">Publicaciones</a>
                 <a class="btn btn-primary" href="#signup">Sign Up</a>
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead" style="min-height: calc(100vh - 66px - 181px);">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
@@ -46,8 +48,8 @@
                 <section style="width: 800px; background: #24303c; font-size: 20px; padding: 10px; margin: auto; margin-bottom: -100px; margin-top: -50px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000; justify-content: center;">
                     <div class="container">
                         <div class="row">
-                            <div class="table-responsive">
-                                <table class="table">
+                            <div class="">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr style="color: white">
                                             <th>Título</th>
@@ -69,11 +71,10 @@
                         </div>
                     </div>
                 </section>
-            </div>
-        
+            </div> 
         </header>
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer bg-dark">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">

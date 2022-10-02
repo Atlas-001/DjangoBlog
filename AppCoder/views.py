@@ -61,3 +61,9 @@ def busqueda(request):
 def cartel(request):
     listadoPeli = Peli.objects.all()
     return render(request, "AppCoder/cartelera.html",{"titulo":listadoPeli})
+
+def leerPub(request):
+    publi = Peli.objects.all()
+    contexto = {"publi":publi}
+    return render(request, "AppCoder/leerPubli.html", contexto)
+
