@@ -15,3 +15,8 @@ class SerieForm(forms.Form):
     titulo = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Título"}), label="")
     genero = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Genero"}), label="")
     anio = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"Año"}), label="")
+
+class PubliForm(forms.Form):
+    titulo = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Título"}), label="")
+    genero = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Genero"}), label="")
+    anio = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"Año"}), label="")

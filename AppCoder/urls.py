@@ -9,6 +9,11 @@ urlpatterns = [
     path("buscar", buscarUsuario, name = "Buscador"),
     path("resultados/", busqueda, name = "Resultado"),
     path("cartelera", cartel, name = "cartelera"),
-    path("publicacion", leerPub, name="publica")
+
+    #CRUD
+    path("leerpubli/", leerPub, name="publicaleer"),
+    path("crearpubli/", leerPub, name="publicacrear"),
+    path("eliminarpubli/<pubTitu>", eliminarPub, name="publicaeliminar"),
+    path("editarpubli/<pubTitu>", editarPub, name="publicaeditar")
     
 ]

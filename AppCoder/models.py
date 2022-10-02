@@ -21,3 +21,10 @@ class Serie(models.Model):
     titulo = models.CharField(max_length=60)
     genero = models.CharField(max_length=60)
     anio = models.IntegerField()
+
+class Publi(models.Model):
+    def __str__(self):
+        return f"Título: {self.titulo} ---- Género: {self.genero} ---- Año: {self.anio}"
+    titulo = models.CharField(max_length=60)
+    genero = models.CharField(max_length=60)
+    anio = models.IntegerField()

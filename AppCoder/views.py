@@ -1,7 +1,5 @@
-from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
 from .models import *
 from .forms import *
 
@@ -67,3 +65,36 @@ def leerPub(request):
     contexto = {"publi":publi}
     return render(request, "AppCoder/leerPubli.html", contexto)
 
+def crearPub(request):
+    if request.method == "POST":
+        crearPublicacion = PubliForm(request.POST)
+        if crearPublicacion.is_valid():
+            info = crearPublicacion.cleaned_data
+            publi = Publi(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
+            publi.save()
+            return render(request, "AppCoder/inicio.html")
+    else:
+        crearPublicacion = PubliForm()
+    return render(request, "AppCoder/publiform.html", {"publicar":crearPublicacion})
+
+def eliminarPub(request, pubTitu):
+    titu = Publi.objects.get(titulo = pubTitu)
+    titu.delete()
+    titulos = Publi.objects.all()
+    contexto = {"titulos":titulos}
+    return render(request, "AppCoder/leerPubli.html", contexto)
+
+def editarPub(request, pubTitu):
+    pubt = Publi.objects.get(titulo = pubTitu)
+    if request.method == "POST":
+        crearPublicacion = PubliForm(request.POST)
+        if crearPublicacion.is_valid():
+            info = crearPublicacion.cleaned_data
+            pubt.titulo = info["titulo"]
+            pubt.genero = info["genero"]
+            pubt.anio = info["anio"]
+            pubt.save()
+            return render(request, "AppCoder/inicio.html")
+    else:
+        crearPublicacion = PubliForm(initial={"titulo": pubt.titulo, "genero": pubt.genero, "anio": pubt.anio})
+    return render(request, "AppCoder/editarPubli.html", {"publicar":crearPublicacion, "nombre":pubTitu})

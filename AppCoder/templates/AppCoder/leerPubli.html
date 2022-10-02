@@ -27,7 +27,7 @@
                 <a class="navbar-brand" href="{% url 'FormUsuario' %}">Usuario</a>
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'cartelera' %}">Cartelera</a>
-                <a class="navbar-brand" href="{% url 'publica' %}">Publicaciones</a>
+                <a class="navbar-brand" href="{% url 'publicaleer' %}">Publicaciones</a>
                 <a class="btn btn-primary" href="#signup">Sign Up</a>
             </div>
         </nav>
@@ -39,12 +39,15 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 style="padding: 30px; align-items: center; margin-top: -170px; text-shadow: 7px 5px 10px #000;">
-                                Peliculas Disponibles
+                                Publicaciones
                             </h1>
                             
                         </div>
                     </div>
                 </div>
+                <button style="width: 70%; background: #1f53c5; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">
+                    <a href="{% url 'publicacrear' %}">Publicar</a>
+                </button>
                 {% for t in publi %}
                 <section style="width: 800px; background: #24303c; font-size: 20px; padding: 10px; margin: auto; margin-bottom: 20px; margin-top: 30px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000; justify-content: center;">
                     <div class="container">
@@ -66,6 +69,12 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button style="width: 70%; background: #1f53c5; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">
+                                    <a href="{% url 'publicaeditar' t.titulo %}">Editar</a>
+                                </button>
+                                <button style="width: 70%; background: #1f53c5; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">
+                                    <a href="{% url 'publicaeliminar' t.titulo %}">Eliminar</a>
+                                </button>
                             </div>
                         </div>
                     </div>
