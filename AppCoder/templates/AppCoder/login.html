@@ -1,0 +1,12 @@
+{% extends "AppCoder/plantilla.html" %}
+
+{% block titulo %}
+Iniciar sesión
+{% endblock %}
+
+{% block formular %}
+    <form action="" method="POST"> {% csrf_token %}
+        {{ingresar.as_p}}
+        <button type="submit" style="width: 70%; background: #1f53c5; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">Iniciar Sesión</button>
+    </form>
+{% endblock %}

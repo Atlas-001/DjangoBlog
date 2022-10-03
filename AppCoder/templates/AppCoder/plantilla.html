@@ -28,7 +28,11 @@
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'cartelera' %}">Cartelera</a>
                 <a class="navbar-brand" href="{% url 'publicaleer' %}">Publicaciones</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary btn-sm" href="{% url 'inicio' %}">Iniciar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'registrando' %}">Registrar</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'salir' %}">Salir</a>
+                </div>
             </div>
         </nav>
         <!-- Masthead-->

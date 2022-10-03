@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Usuario)
 admin.site.register(Peli)
 admin.site.register(Serie)
+admin.site.register(Publi)
