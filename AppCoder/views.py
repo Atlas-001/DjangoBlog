@@ -138,3 +138,18 @@ def registro(request):
     else:
         registrar = RegistroForm()
     return render(request, "AppCoder/registro.html",{"registrar":registrar})
+
+def editarUsuario(request):
+    userConect = request.user
+    if request.method == "POST":
+        usuarioform = EditarUsuarioForm(request.POST)
+        if usuarioform.is_valid():
+            info = usuarioform.cleaned_data
+            userConect.email = info["email"]
+            userConect.password1 = info["password1"]
+            userConect.password2 = info["password2"]
+            userConect.save()
+            return render(request, "AppCoder/inicio.html")
+    else:
+        usuarioform = EditarUsuarioForm(initial={"email": userConect.email})
+    return render(request, "AppCoder/editarUsuario.html", {"userEdit":usuarioform, "userOn":userConect})

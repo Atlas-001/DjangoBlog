@@ -32,4 +32,12 @@ class RegistroForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username","email","password1","password2"]
+
+class EditarUsuarioForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.TextInput(attrs={"placeholder":"Ingrese un correo"}), label="")
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"Ingrese una contraseña"}), label="")
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"Repita la contraseña"}), label="")
+    class Meta:
+        model = User
+        fields = ["email","password1","password2"]
         
