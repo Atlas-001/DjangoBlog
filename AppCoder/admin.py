@@ -3,7 +3,8 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Usuario)
 admin.site.register(Peli)
-admin.site.register(Serie)
 admin.site.register(Publi)
+admin.site.register(Avatar)
+admin.site.register(Perfil)
+admin.site.register(Post)

@@ -1,3 +1,5 @@
+by Paula Silva, Emanuel Lopez Del Castillo
+
 administrador django
 usuario: parker
 clave: probando123

@@ -15,27 +15,47 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
-        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'FormSerie' %}">Series</a>
                 <a class="navbar-brand" href="{% url 'FormPeli' %}">Pelis</a>
-                <a class="navbar-brand" href="{% url 'FormUsuario' %}">Usuario</a>
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'cartelera' %}">Cartelera</a>
                 <a class="navbar-brand" href="{% url 'publicaleer' %}">Publicaciones</a>
+                <a class="navbar-brand" href="{% url 'Perfil' %}">Perfil</a>
+                <a class="navbar-brand" href="{% url 'Posteos' %}">Posts</a>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    {% if request.user.is_authenticated %}
+                    <a class="btn btn-primary btn-sm" href="{% url 'salir' %}">Salir</a>
+                    {% else %}
                     <a class="btn btn-primary btn-sm" href="{% url 'inicio' %}">Iniciar</a>
                     <a class="btn btn-primary btn-sm" href="{% url 'registrando' %}">Registrar</a>
-                    <a class="btn btn-primary btn-sm" href="{% url 'salir' %}">Salir</a>
+                    {% endif %}
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    {% if request.user.is_authenticated %}
+                    <p style=" color: bisque;"> {{user}} </p>
+                    {% with first_image=user.avatar_set.first %}
+                    {% if first_image %}
+                    <a href="{{ first_image.imagen.url }}" target="_blank"></a>
+                    <img style="border-radius: 50%;" src="{{ first_image.imagen.url }}" height="40px">
+                    {% endif %}
+                    {% endwith %}
+                    {% endif %}
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="notification {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
         <header class="masthead" style="min-height: calc(100vh - 66px - 181px);">
             <div class="container position-relative">
                 <div class="row justify-content-center">

@@ -1,0 +1,14 @@
+{% extends "AppCoder/postPadre.html" %}
+
+{% block titulo %}
+Editar Post
+{% endblock %}
+
+{% block postPadre %}
+    <form action="" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+        <table align="center">
+            {{editar.as_table}}
+        </table>
+        <input type="submit" value="Confirmar" style="width: 70%; background: #1f53c5; font-size: 20px; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">
+    </form>
+{% endblock %}
