@@ -95,11 +95,15 @@
                             </div>
                         </article>
                     </table>
+                    {% if user.id == p.user.id %}
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'editarPost' p.titulo %}" style="color: white; text-decoration: none;">Editar</a></button>
-                        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'eliminarPost' p.titulo %}" style="color: white; text-decoration: none;">Eliminar</a></button>
+                        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'editarPost' p.id %}" style="color: white; text-decoration: none;">Editar</a></button>
+                        <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'eliminarPost' p.id %}" style="color: white; text-decoration: none;">Eliminar</a></button>
                     </div>
-
+                    {% endif %}
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'detallePost' p.id %}" style="color: white; text-decoration: none;">Detalle</a></button>
+                    </div>
                 </section>
                 {% endfor %}
             </div> 

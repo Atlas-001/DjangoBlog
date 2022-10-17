@@ -18,6 +18,7 @@ urlpatterns = [
     path("postear/", postear, name = "Postear"),
     path("editarPost/<Posteo>", editarPost, name = "editarPost"),
     path("eliminarPost/<Posteo>", eliminarPost, name = "eliminarPost"),
+    path('detallePost/<int:pk>/', detallePost.as_view(), name='detallePost'),
 
     #CRUD
     path("leerpubli/", leerPub, name="publicaleer"),

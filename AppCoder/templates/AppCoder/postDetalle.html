@@ -1,0 +1,13 @@
+{% extends "AppCoder/postPadre.html" %}
+
+
+{% block postPadre %}
+<p><h4>{{detallePost.titulo}}</h4></p>
+
+{% if detallePost.imagen %}
+    <p><img class="imagenPost" src="{{detallePost.imagen.url}}" alt=""></p>
+{% endif %}
+<p>Genero: {{detallePost.genero}}</p>
+<p>Año: {{detallePost.anio}}</p>
+
+{% endblock %}

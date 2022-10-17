@@ -4,6 +4,7 @@ from .models import *
 from .forms import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -193,3 +194,7 @@ def eliminarPost(request, Posteo):
     contexto = {"titulos":titulos}
     return render(request, "AppCoder/posteos.html", contexto)
 
+class detallePost(LoginRequiredMixin, DetailView):
+    model = Post
+    context_object_name = 'detallePost'
+    template_name = 'AppCoder/postDetalle.html'
