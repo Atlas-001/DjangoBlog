@@ -14,6 +14,8 @@ urlpatterns = [
     path("perfil/", perfil, name = "Perfil"),
     path('detallePost/<int:pk>/', detallePost.as_view(), name='detallePost'),
     path('comentario/', comentar, name='comentario'),
+    path('about/', about, name='About'),
+    path('misPosteos/', misPosteos, name='misPosteos'),
     
     #CRUD
     path("posteo/", posts, name = "Posteos"),

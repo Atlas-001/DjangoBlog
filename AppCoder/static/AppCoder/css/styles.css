@@ -11333,7 +11333,6 @@ header.masthead h1, header.masthead .h1 {
 }
 .testimonials .testimonial-item img {
   max-width: 12rem;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
 }
 
 .call-to-action {
@@ -11586,4 +11585,29 @@ time {
   color: white;
   margin: 16px;
   font-size: 22px;
+}
+
+.bg-oscuro {
+  background-color: #24303c;
+  text-align: center;
+  color: #fff;
+  font-family: Tahoma;
+}
+.fondo {
+  position: relative;
+  background-color: #343a40;
+  background: url("../assets/img/bg-masthead2.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+.fondo:before {
+  content: "";
+  position: absolute;
+  background-color: #1c375e;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
 }

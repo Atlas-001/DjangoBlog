@@ -1,7 +1,7 @@
 ## Proyecto Final Coder House del curso de Python, comisión 41635
 
 ## Desarrolladores:
-- Paula Silva
+- Paula Andrea Silva
 - Maria Florencia Angulo
 - Emanuel Lopez Del Castillo
 
@@ -18,15 +18,15 @@ El sitio permite realizar las siguientes acciones:
 - Buscar publicaciones por el título
 
 ## Administrador django
-usuario: Atlas
-clave: probando123
+- usuario: Atlas
+- clave: probando123
 
 ## Otros usuarios
-Usuario: Parker
-Clave: probando123
+- Usuario: Parker
+- Clave: probando123
 
-Usuario: Maverick
-Clave: probando123
+- Usuario: Maverick
+- Clave: probando123
 
 
 http://127.0.0.1:8000/AppCoder/

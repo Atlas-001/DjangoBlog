@@ -157,3 +157,6 @@ def comentar(request):
 
 def about(request):
     return render(request, "AppCoder/sobre.html")
+
+def misPosteos(request):
+    return render(request, "AppCoder/misPosts.html")
