@@ -1,5 +1,5 @@
 {% extends "AppCoder/plantilla.html" %}
-
+{% load static %}
 {% block titulo %}
 
 Bienvenido Al Sitio
@@ -8,4 +8,35 @@ Bienvenido Al Sitio
 
 {% block formular %}
 Le decimos Séptimo Arte, ¿por qué? Según la clasificación de Hegel, la arquitectura, la escultura, la pintura, la música y la poesía eran las artes principales. Pero luego, Ricciotto Canuto, artista italiano, escribió el Manifiesto de las siete artes y estableció allí una jerarquía moderna que todos utilizamos hasta el día de hoy: arquitectura, escultura, pintura, música, poesía/literatura, danza y cine.
+{% endblock %}
+
+{% block about %}
+<section class="testimonials text-center bg-light">
+    <div class="container">
+        <h1 class="mb-5"><a href="" style="text-decoration: none;">About</a></h1>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="{% static 'AppCoder/assets/img/testimonials-1.jpg' %}" alt="..." />
+                    <h5>Flor</h5>
+                    <p class="font-weight-light mb-0">"Python Developer"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="{% static 'AppCoder/assets/img/testimonials-2.jpg' %}" alt="..." />
+                    <h5>Emanuel</h5>
+                    <p class="font-weight-light mb-0">"Python Developer"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src="{% static 'AppCoder/assets/img/testimonials-3.jpg' %}" alt="..." />
+                    <h5>Paula</h5>
+                    <p class="font-weight-light mb-0">"Python Developer"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

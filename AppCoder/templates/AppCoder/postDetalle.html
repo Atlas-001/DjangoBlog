@@ -1,5 +1,6 @@
 {% extends "AppCoder/postPadre.html" %}
 
+{% load humanize %}
 
 {% block postPadre %}
 <p><h4>{{detallePost.titulo}}</h4></p>
@@ -9,5 +10,24 @@
 {% endif %}
 <p>Genero: {{detallePost.genero}}</p>
 <p>Año: {{detallePost.anio}}</p>
+<p class="cuadro-texto post">{{detallePost.content}}</p>
+<button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'Posteos' %}" style="color: white; text-decoration: none;">Regresar</a></button>
 
+{% if not comentario.comentarios.all %}
+<p style="padding: 30px; align-items: right; margin-top: 5px;"><strong>No hay comentarios</strong></p>
+{% else %}
+    {% for c in comentario %}
+    <div class="table table-responsive container-article">
+        <a href="{{ c.user.avatar.imagen.url }}" target="_blank"></a>
+        <img src="{{ c.user.avatar.imagen.url }}">
+        <div>
+            <h2 class="username">@{{ c.user.username }}</h2>
+            <i class="clock"></i>
+            <time data-time="#">{{ c.timecoment|naturaltime }}</time>
+            <div class="cuadro-texto"><div class="post" >{{ c.mensaje }}</div></div>                                    
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+<button type="submit" class="botonform"><a href="{% url 'comentario' %}" style="color: white; text-decoration: none;">Comentar</a></button>
 {% endblock %}

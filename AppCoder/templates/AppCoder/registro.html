@@ -7,6 +7,6 @@ Iniciar sesión
 {% block formular %}
     <form action="" method="POST"> {% csrf_token %}
         {{registrar.as_p}}
-        <button type="submit" style="width: 70%; background: #1f53c5; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">Registrarse</button>
+        <button type="submit" class="botonform">Registrarse</button>
     </form>
 {% endblock %}

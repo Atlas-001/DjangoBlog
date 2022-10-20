@@ -11,19 +11,6 @@ from django.contrib import messages
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
 
-@login_required#(login_url='inicio')
-def formuPeli(request):
-    if request.method == "POST":
-        formulario2 = PeliForm(request.POST)
-        if formulario2.is_valid():
-            info = formulario2.cleaned_data
-            peliF = Peli(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
-            peliF.save()
-            return render(request, "AppCoder/inicio.html")
-    else:
-        formulario2 = PeliForm()
-    return render(request, "AppCoder/peliform.html", {"form2":formulario2})
-
 @login_required
 def buscarUsuario(request):
     return render(request, "AppCoder/buscando.html")
@@ -32,60 +19,11 @@ def buscarUsuario(request):
 def busqueda(request):
     if request.GET["titulo"]:
         buscar = request.GET["titulo"]
-        pelis = Peli.objects.filter(titulo__icontains=buscar)
+        pelis = Post.objects.filter(titulo__icontains=buscar)
         return render(request, "AppCoder/resultados.html", {"pelis":pelis, "buscar":buscar})
     else:
         mensaje = "No enviaste datos."
     return HttpResponse(mensaje)
-
-
-@login_required
-def cartel(request):
-    listadoPeli = Peli.objects.all()
-    return render(request, "AppCoder/cartelera.html",{"titulo":listadoPeli})
-
-@login_required
-def leerPub(request):
-    publi = Publi.objects.all()
-    contexto = {"publi":publi}
-    return render(request, "AppCoder/leerPubli.html", contexto)
-
-@login_required
-def crearPub(request):
-    if request.method == "POST":
-        crearPublicacion = PubliForm(request.POST)
-        if crearPublicacion.is_valid():
-            info = crearPublicacion.cleaned_data
-            publi = Publi(titulo = info["titulo"], genero = info["genero"], anio = info["anio"])
-            publi.save()
-            return render(request, "AppCoder/leerPubli.html")
-    else:
-        crearPublicacion = PubliForm()
-    return render(request, "AppCoder/publiform.html", {"publicar":crearPublicacion})
-
-@login_required
-def eliminarPub(request, pubTitu):
-    titu = Publi.objects.get(titulo = pubTitu)
-    titu.delete()
-    titulos = Publi.objects.all()
-    contexto = {"titulos":titulos}
-    return render(request, "AppCoder/leerPubli.html", contexto)
-
-@login_required
-def editarPub(request, pubTitu):
-    pubt = Publi.objects.get(titulo = pubTitu)
-    if request.method == "POST":
-        crearPublicacion = PubliForm(request.POST)
-        if crearPublicacion.is_valid():
-            info = crearPublicacion.cleaned_data
-            pubt.titulo = info["titulo"]
-            pubt.genero = info["genero"]
-            pubt.anio = info["anio"]
-            pubt.save()
-            return render(request, "AppCoder/leerPubli.html")
-    else:
-        crearPublicacion = PubliForm(initial={"titulo": pubt.titulo, "genero": pubt.genero, "anio": pubt.anio})
-    return render(request, "AppCoder/editarPubli.html", {"publicar":crearPublicacion, "nombre":pubTitu})
 
 def iniciar(request):
     if request.method == "POST":
@@ -167,13 +105,14 @@ def postear(request):
             messages.success(request, "Publicación enviado con éxito")
             return render(request, "AppCoder/inicio.html")
     else:
-        posteo =PostForm()
+        posteo = PostForm()
     return render(request,"AppCoder/postform.html",{"posteo":posteo})
 
+@login_required
 def editarPost(request, Posteo):
     editar = Post.objects.get(titulo = Posteo)
     if request.method == "POST":
-        postEditar = PostForm(request.POST, request.FILE)
+        postEditar = PostForm(request.POST, request.FILES)
         if postEditar.is_valid():
             info = postEditar.cleaned_data
             editar.imagen = info["imagen"]
@@ -182,11 +121,13 @@ def editarPost(request, Posteo):
             editar.anio = info["anio"]
             editar.content = info["content"]
             editar.save()
+            messages.success(request, "Publicación editada con éxito")
             return render(request, "AppCoder/posteos.html")
     else:
         postEditar = PostForm(initial={"imagen": editar.imagen, "titulo": editar.titulo, "genero": editar.genero, "anio": editar.anio, "content": editar.content})
     return render(request, "AppCoder/postEdit.html", {"editar":postEditar, "nombre":Posteo})
 
+@login_required
 def eliminarPost(request, Posteo):
     eliminar = Post.objects.get(titulo = Posteo)
     eliminar.delete()
@@ -198,3 +139,21 @@ class detallePost(LoginRequiredMixin, DetailView):
     model = Post
     context_object_name = 'detallePost'
     template_name = 'AppCoder/postDetalle.html'
+
+@login_required
+def comentar(request):
+    current_user = get_object_or_404(User, pk=request.user.pk)
+    if request.method == "POST":
+        comentario = ComentarForm(request.POST)
+        if comentario.is_valid():
+            coment = comentario.save(commit=False)
+            coment.user = current_user
+            coment.save()
+            messages.success(request, "Comentario realizado con éxito")
+            return render(request, "AppCoder/posteos.html")
+    else:
+        comentario = ComentarForm()
+    return render(request,"AppCoder/postcoment.html",{"comentario":comentario})
+
+def about(request):
+    return render(request, "AppCoder/sobre.html")

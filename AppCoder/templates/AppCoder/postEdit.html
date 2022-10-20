@@ -5,10 +5,15 @@ Editar Post
 {% endblock %}
 
 {% block postPadre %}
+    {%if editar.errors %}
+    <p style="color: red;">
+        Datos mal cargados!
+    </p>
+    {% endif %}
     <form action="" enctype="multipart/form-data" method="POST"> {% csrf_token %}
-        <table align="center">
+        <table margin="center">
             {{editar.as_table}}
         </table>
-        <input type="submit" value="Confirmar" style="width: 70%; background: #1f53c5; font-size: 20px; border: none; border-radius: 4px; padding: 4px; color: white; margin: 16px; font-size: 22px;">
+        <input type="submit" value="Confirmar" class="botonform">
     </form>
 {% endblock %}

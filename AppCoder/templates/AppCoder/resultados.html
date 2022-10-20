@@ -1,15 +1,19 @@
-{% extends "AppCoder/plantilla.html" %}
+{% extends "AppCoder/postPadre.html" %}
 
-{% block titulo %}
+{% block postTitulo %}
 Resultado de Busqueda
 {% endblock %}
 
-{% block formular %}
+{% block postPadre %}
     {% for peli in pelis %}
-        <ul>
-            <li>Titulo: {{peli.titulo}}</li>
-            <li>Genero: {{peli.genero}}</li>
-            <li>Año: {{peli.anio}}</li>
-        </ul>
+        <p><h4>{{peli.titulo}}</h4></p>
+        {% if peli.imagen %}
+            <p><img class="imagenPost" src="{{peli.imagen.url}}" alt="No Hay imagen"></p>
+        {% endif %}
+        <p>Genero: {{peli.genero}}</p>
+        <p>Año: {{peli.anio}}</p>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary btn-sm"><a href="{% url 'Posteos' %}" style="color: white; text-decoration: none;">Regresar</a></button>
+        </div>
     {% endfor %}
 {% endblock %}

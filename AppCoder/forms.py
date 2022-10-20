@@ -2,22 +2,7 @@ from mimetypes import init
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Avatar, Post
-
-class Formulario(forms.Form):
-    nombre = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Nombre"}), label="")
-    apellido = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Apellido"}), label="")
-    mail = forms.EmailField(widget=forms.TextInput(attrs={"placeholder":"Correo"}), label="")
-
-class PeliForm(forms.Form):
-    titulo = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Título"}), label="")
-    genero = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Genero"}), label="")
-    anio = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"Año"}), label="")
-
-class PubliForm(forms.Form):
-    titulo = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Título"}), label="")
-    genero = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Genero"}), label="")
-    anio = forms.IntegerField(widget=forms.TextInput(attrs={"placeholder":"Año"}), label="")
+from .models import Avatar, Post, Comentar
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(widget=forms.TextInput(attrs={"placeholder":"Ingrese un correo"}), label="")
@@ -71,3 +56,10 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["imagen","titulo","genero","anio","content"]
+
+class ComentarForm(forms.ModelForm):
+    mensaje = forms.CharField(label="", widget=forms.Textarea(attrs={"rows":2, "placeholder":"Escribe aquí"}), required=True)
+
+    class Meta:
+        model = Comentar
+        fields = ["mensaje"]
