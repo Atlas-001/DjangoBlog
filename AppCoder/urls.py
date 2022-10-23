@@ -13,7 +13,8 @@ urlpatterns = [
     path("agregarAvatar/", agregarAvatar, name="AgregarAvatar"),
     path("perfil/", perfil, name = "Perfil"),
     path('detallePost/<int:pk>/', detallePost.as_view(), name='detallePost'),
-    path('comentario/', comentar, name='comentario'),
+    path('detallePost/<int:pk>/comentario/', ComentarioPagina.as_view(), name='comentario'),
+    #path('comentario/', comentar, name='comentario'),
     path('about/', about, name='About'),
     path('misPosteos/', misPosteos, name='misPosteos'),
     

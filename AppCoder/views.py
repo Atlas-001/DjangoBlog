@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView
 
 def inicio(request):
     return render(request, "AppCoder/inicio.html")
@@ -154,6 +156,17 @@ def comentar(request):
     else:
         comentario = ComentarForm()
     return render(request,"AppCoder/postcoment.html",{"comentario":comentario})
+
+class ComentarioPagina(LoginRequiredMixin, CreateView):
+    model = Comentar
+    form_class = ComentarForm
+    context_object_name = 'comentario'
+    template_name = 'AppCoder/postcoment.html'
+    success_url = reverse_lazy('Inicio')
+
+    def form_valid(self, form):
+        form.instance.comentario_id = self.kwargs['pk']
+        return super(ComentarioPagina, self).form_valid(form)
 
 def about(request):
     return render(request, "AppCoder/sobre.html")

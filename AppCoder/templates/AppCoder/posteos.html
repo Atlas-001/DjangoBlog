@@ -20,8 +20,11 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-dark static-top">
-            <div class="container">
-                <img src="{% static 'AppCoder/assets/img/silla.png' %}" height="40px" />
+            <div class="logo">
+                <img  src="{% static 'AppCoder/assets/img/silla.png' %}" height="40px" />
+                <h2 class="titulo-logo">Cinerd</h2>
+                </div>
+                <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'Posteos' %}">Posts</a>
@@ -42,6 +45,8 @@
                     {% if first_image %}
                     <a href="{{ first_image.imagen.url }}" target="_blank"></a>
                     <img style="border-radius: 50%;" src="{{ first_image.imagen.url }}" height="40px">
+                    {% else %}
+                    <img style="border-radius: 50%;" src="{% static 'AppCoder/assets/img/blank.png' %}" height="40px" />
                     {% endif %}
                     {% endwith %}
                     {% endif %}
@@ -83,13 +88,13 @@
                     </div>
                 </section>
                 {% for p in posts %}
-                <section style="width: 800px; background: #24303c; font-size: 20px; padding: 10px; margin: auto; margin-bottom: 20px; margin-top: 30px; border-radius: 4px; font-family: 'calibri'; color: white; box-shadow: 7px 13px 20px #000; justify-content: center;">
+                <section class="sector-post">
                     <table class="table table-responsive">
                         <article>
                             <img class="imagenPost" src="{{ p.imagen.url }}" alt="No hay imagen">
                             <div class="container-article">
-                                <a href="{{ p.user.avatar.imagen.url }}" target="_blank"></a>
-                                <img src="{{ p.user.avatar.imagen.url }}">
+                                <a href="{{ p.user_avatar.imagen.url }}" target="_blank"></a>
+                                <img src="{{ p.user_avatar.imagen.url }}">
                                 <div>
                                     <h2 class="username">@{{ p.user.username }}</h2>
                                     <i class="clock"></i>

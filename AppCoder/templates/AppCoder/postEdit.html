@@ -5,10 +5,10 @@ Editar Post
 {% endblock %}
 
 {% block postPadre %}
-    {%if editar.errors %}
-    <p style="color: red;">
-        Datos mal cargados!
-    </p>
+    {% if editar.errors %}
+
+    <p style="color: red">Están mal los datos</p>
+
     {% endif %}
     <form action="" enctype="multipart/form-data" method="POST"> {% csrf_token %}
         <table margin="center">

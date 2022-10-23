@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Avatar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to="avatares", default='pp.png', null=True, blank=True)
+    imagen = models.ImageField(upload_to="avatares", default='', null=True, blank=True)
 
     class Meta:
         verbose_name = "Avatar"
@@ -13,7 +13,7 @@ class Avatar(models.Model):
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='pp.png')
+    imagen = models.ImageField(default='', null=True, blank=True)
 
     def __str__(self):
         return f'Perfil de {self.user.username}'
@@ -34,8 +34,9 @@ class Post(models.Model):
         return f'{self.user.username}: {self.titulo}: {self.genero}'
 
 class Comentar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comentarios', null=True)
-    image = models.ImageField(default='pp.png', null=True, blank=True)
+    comentario = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comentarios', null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='usuario', null=True)
+    imagen = models.ImageField(default='', null=True, blank=True)
     timecoment = models.DateTimeField(default=timezone.now)
     mensaje = models.TextField(null=True, blank=True)
 

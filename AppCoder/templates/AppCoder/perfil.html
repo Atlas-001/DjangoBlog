@@ -1,5 +1,5 @@
 {% extends "AppCoder/configuracion.html" %}
-
+{% load static %}
 {% block info %}
 <div class="main">
     <div class="profile">
@@ -8,6 +8,9 @@
                 {% if first_image %}
                     <a href="{{ first_image.imagen.url }}" target="_blank"></a>
                     <img src="{{ first_image.imagen.url }}">
+                {% else %}
+                    <a href="{% static 'AppCoder/assets/img/blank.png' %}" target="_blank"></a>
+                    <img src="{% static 'AppCoder/assets/img/blank.png' %}"/>
                 {% endif %}
             {% endwith %}
         {% endif %}

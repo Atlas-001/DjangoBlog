@@ -4016,6 +4016,27 @@ textarea.form-control-lg {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+.navbar .logo{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  font-family: Helvetica;
+  text-align: center;
+}
+.titulo-logo{
+  padding-left: 10px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
 .navbar > .container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
@@ -4026,7 +4047,7 @@ textarea.form-control-lg {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .navbar-brand {
   padding-top: 0.3125rem;
@@ -11610,4 +11631,40 @@ time {
   top: 0;
   left: 0;
   opacity: 1;
+}
+
+.sector-post {
+  width: 800px;
+  background: #24303c;
+  font-size: 20px;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 20px #000;
+  justify-content: center;
+}
+
+.raya {
+  display: flex;
+	margin: 30px auto;
+	border-bottom: 2px solid #696969;
+	padding-bottom: 6px;
+}
+
+.formular {
+  width: 400px;
+  background: #24303c;
+  font-size: 20px;
+  padding: 30px;
+  margin: auto;
+  margin-bottom: -40px;
+  margin-top: -40px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 20px #000;
 }

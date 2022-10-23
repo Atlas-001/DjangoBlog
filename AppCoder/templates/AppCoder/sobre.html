@@ -19,8 +19,11 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-dark">
-            <div class="container">
-                <img src="{% static 'AppCoder/assets/img/silla.png' %}" height="40px" />
+            <div class="logo">
+                <img  src="{% static 'AppCoder/assets/img/silla.png' %}" height="40px" />
+                <h2 class="titulo-logo">Cinerd</h2>
+                </div>
+                <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'Buscador' %}">Buscar</a>
                 <a class="navbar-brand" href="{% url 'Posteos' %}">Posts</a>
@@ -41,6 +44,8 @@
                     {% if first_image %}
                     <a href="{{ first_image.imagen.url }}" target="_blank"></a>
                     <img style="border-radius: 50%;" src="{{ first_image.imagen.url }}" height="40px">
+                    {% else %}
+                    <img src="{% static 'AppCoder/assets/img/blank.png' %}" style="border-radius: 50%;" height="40px" />
                     {% endif %}
                     {% endwith %}
                     {% endif %}

@@ -7,7 +7,7 @@ Comentar
 {% block postPadre %}
 <form action="" method="POST"> {% csrf_token %}
     <table style="align-content: center;">
-        {{comentario.as_table}}
+        {{form.as_table}}
     </table>
     <input type="submit" value="Confirmar" class="botonform">
 </form>
