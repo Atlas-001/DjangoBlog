@@ -31,3 +31,7 @@ El sitio permite realizar las siguientes acciones:
 
 http://127.0.0.1:8000/AppCoder/
 
+
+## Video de demostración del funcionamiento de la web
+
+https://youtu.be/x684GGhkrD8
