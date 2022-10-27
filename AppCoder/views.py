@@ -142,7 +142,7 @@ class detallePost(LoginRequiredMixin, DetailView):
     context_object_name = 'detallePost'
     template_name = 'AppCoder/postDetalle.html'
 
-@login_required
+"""@login_required
 def comentar(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == "POST":
@@ -155,7 +155,7 @@ def comentar(request):
             return render(request, "AppCoder/posteos.html")
     else:
         comentario = ComentarForm()
-    return render(request,"AppCoder/postcoment.html",{"comentario":comentario})
+    return render(request,"AppCoder/postcoment.html",{"comentario":comentario})"""
 
 class ComentarioPagina(LoginRequiredMixin, CreateView):
     model = Comentar
